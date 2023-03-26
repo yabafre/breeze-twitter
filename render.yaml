@@ -55,10 +55,12 @@ services:
       - key: DB_PASSWORD
         value: 3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4
 
-databases:
-  - name: laravel
-    type: postgres
+# Add this new service for running the database postgreSQL
+  - type: postgres
+    name: laravel-breeze-db
+    env: docker
     version: 13
+    port: 5432
     envVars:
       - key: POSTGRES_USER
         value: root
