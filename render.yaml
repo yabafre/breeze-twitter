@@ -32,6 +32,31 @@ services:
       - key: LOG_DEPRECATIONS_CHANNEL
         value: null
 
+  - type: script
+    name: laravel-breeze-migrations
+    env: docker
+    buildCommand: "docker build -t laravel-breeze-migrations ."
+    startCommand: "docker run laravel-breeze-migrations php artisan migrate --force"
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        value: base64:xL42zCmPgIDK69zKZyCOKsqCbVDqgpqp6Z+dhmqpZPs=
+      - key: APP_URL
+        value: https://twitter-12ur.onrender.com
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        value: dpg-cgfm1am4daddcg0i37qg-a
+      - key: DB_PORT
+        value: 5432
+      - key: DB_DATABASE
+        value: laravel_j1tu
+      - key: DB_USERNAME
+        value: root
+      - key: DB_PASSWORD
+        value: 3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4
+
 
 databases:
   - name: laravel
