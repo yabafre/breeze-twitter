@@ -1,10 +1,12 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 
-export default defineConfig(({ command }) => {
-    const isProduction = command === 'build';
+export default defineConfig(({ mode }) => {
+    const isProduction = mode === 'production';
+    const base = isProduction ? 'https://' : '';
 
     return {
+        base,
         plugins: [
             laravel({
                 input: [
@@ -14,15 +16,5 @@ export default defineConfig(({ command }) => {
                 refresh: true,
             }),
         ],
-        server: {
-            proxy: {
-                '/build': {
-                    target: isProduction ? 'https://twitter-12ur.onrender.com' : 'http://localhost:3000',
-                    changeOrigin: true,
-                    ws: true,
-                    rewrite: (path) => path.replace(/^\/build/, ''),
-                },
-            },
-        },
     };
 });
