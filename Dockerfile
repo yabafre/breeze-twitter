@@ -49,12 +49,6 @@ RUN chown -R www-data:www-data /var/www/html \
 RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
 
-# Caching routes
-RUN php artisan route:cache
-
-# Caching config
-RUN php artisan config:cache
-
 # Installez les dépendances NPM et exécutez Vite pour construire les assets
 RUN . ~/.nvm/nvm.sh && npm install && npm run build
 
