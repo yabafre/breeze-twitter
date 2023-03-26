@@ -11,6 +11,8 @@ services:
         value: base64:xL42zCmPgIDK69zKZyCOKsqCbVDqgpqp6Z+dhmqpZPs=
       - key: APP_DEBUG
         value: "true"
+      - key: APP_URL
+        value: https://twitter-12ur.onrender.com
       - key: DB_CONNECTION
         value: pgsql
       - key: DB_HOST
