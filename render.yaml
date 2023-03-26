@@ -30,6 +30,7 @@ services:
       - key: LOG_DEPRECATIONS_CHANNEL
         value: null
 
+
 databases:
   - name: laravel
     engine: postgres
