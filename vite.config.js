@@ -11,4 +11,11 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    base: process.env.NODE_ENV === 'production' ? 'https://twitter-12ur.onrender.com/' : '/',
+    server: {
+        host: '0.0.0.0',
+        port: 3000,
+        strictPort: true,
+        https: true,
+    },
 });
