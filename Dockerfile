@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y \
 
 # Add the custom Apache configuration file
 COPY apache.conf /etc/apache2/conf-available/custom.conf
+COPY .docker/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN ln -s /etc/apache2/conf-available/custom.conf /etc/apache2/conf-enabled/custom.conf
 
 # Installez Composer
