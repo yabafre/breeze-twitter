@@ -17,6 +17,11 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install zip
 
+# Install the PHP extension for PostgreSQL
+RUN apt-get update && apt-get install -y libpq-dev \
+    && docker-php-ext-install pdo_pgsql
+
+
 # Add the custom Apache configuration file
 COPY apache.conf /etc/apache2/conf-available/custom.conf
 COPY .docker/000-default.conf /etc/apache2/sites-available/000-default.conf

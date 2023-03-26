@@ -13,31 +13,31 @@ services:
       - key: APP_DEBUG
         value: "true"
       - key: DB_CONNECTION
-        value: mysql
+        value: pgsql
       - key: DB_HOST
-        fromService:
-          name: laravel-breeze-db
-          type: "psql"
-          property: host
+        value: "dpg-cgfm1am4daddcg0i37qg-a"
       - key: DB_PORT
-        value: "3306"
+        value: "5432"
       - key: DB_DATABASE
-        value: laravel_breeze
+        value: laravel_j1tu
       - key: DB_USERNAME
-        value: laravel_breeze_user
+        value: root
       - key: DB_PASSWORD
-        fromService:
-          name: laravel-breeze-db
-          type: "psql"
-          property: password
+        value: 3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4
+      - key: LOG_CHANNEL
+        value: stack
+      - key: LOG_LEVEL
+        value: debug
+      - key: LOG_DEPRECATIONS_CHANNEL
+        value: null
 
 
 databases:
   - name: laravel-breeze-db
-    engine: mysql
-    version: "8.0"
-    username: laravel_breeze_user
-    password: laravel_breeze_password
-    port: 3306
-    database: laravel_breeze
+    engine: postgres
+    version: "13"
+    username: root
+    password: 3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4
+    port: 5432
+    database: laravel_j1tu
 
