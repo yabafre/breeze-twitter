@@ -31,7 +31,7 @@ services:
         value: null
 
 databases:
-  - name: laravel-breeze-db
+  - name: laravel
     engine: postgres
     version: "15"
     username: root
