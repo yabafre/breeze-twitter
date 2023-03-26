@@ -9,15 +9,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ForceHttps
 {
-    /**
-     * Handle an incoming request.
-     */
+
     public function handle(Request $request, Closure $next)
     {
-        if (!$request->secure() && App::environment(['production'])) {
+        if (App::environment(['production']) && $request->header('X-Forwarded-Proto') !== 'https') {
             return redirect()->secure($request->getRequestUri());
         }
-
         return $next($request);
     }
 
