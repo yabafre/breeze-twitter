@@ -1,6 +1,5 @@
 services:
   - type: web
-    container_name: laravel-breeze-app
     name: laravel-breeze-app
     env: docker
     buildCommand: "docker build -t laravel-breeze-app ."
@@ -58,9 +57,12 @@ services:
 
 databases:
   - name: laravel
-    engine: postgres
-    version: "15"
-    username: root
-    password: 3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4
-    port: 5432
-    database: laravel_j1tu
+    type: postgres
+    version: 13
+    envVars:
+      - key: POSTGRES_USER
+        value: root
+      - key: POSTGRES_PASSWORD
+        value: 3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4
+      - key: POSTGRES_DB
+        value: laravel_j1tu
