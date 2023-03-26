@@ -14,7 +14,7 @@ services:
       - key: DB_CONNECTION
         value: pgsql
       - key: DB_HOST
-        value: postgres://root:3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4@dpg-cgfm1am4daddcg0i37qg-a/laravel_j1tu
+        value: dpg-cgfm1am4daddcg0i37qg-a
       - key: DB_PORT
         value: 5432
       - key: DB_DATABASE
@@ -29,31 +29,18 @@ services:
         value: debug
       - key: LOG_DEPRECATIONS_CHANNEL
         value: null
-      - key: REDIS_HOST
-        fromService:
-          type: redis
-          name: lightning
-          property: host # available properties are listed below
-      - key: REDIS_PORT
-        fromService:
-          type: redis
-          name: lightning
-          property: port
-      - fromGroup: env
 
-# Add this new service for running the database postgreSQL
-  - type : postgresql
-    version : 15
-    port : 5432
-    host : postgres://root:3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4@dpg-cgfm1am4daddcg0i37qg-a/laravel_j1tu
-    envVars :
-      - key : POSTGRES_USER
-        value : root
-      - key : POSTGRES_PASSWORD
-        value : 3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4
-      - key : POSTGRES_DB
-        value : laravel_j1tu
-      - key : POSTGRES_HOST_AUTH_METHOD
-        value : trust
-      - key: DB_HOST
-        value: postgres://root:3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4@dpg-cgfm1am4daddcg0i37qg-a/laravel_j1tu
+databases:
+  - type: postgres
+    version: 15
+    port: 5432
+    name: laravel-breeze-db
+    envVars:
+      - key: POSTGRES_USER
+        value: root
+      - key: POSTGRES_PASSWORD
+        value: 3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4
+      - key: POSTGRES_DB
+        value: laravel_j1tu
+      - key: POSTGRES_HOST_AUTH_METHOD
+        value: trust
