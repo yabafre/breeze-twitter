@@ -48,8 +48,6 @@ RUN chown -R www-data:www-data /var/www/html \
 # Installez les dépendances du projet
 RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
-# php migration
-RUN php artisan migrate
 
 # Caching routes
 RUN php artisan route:cache
