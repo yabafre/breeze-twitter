@@ -59,7 +59,7 @@ services:
   - type: postgres
     name: laravel-breeze-db
     env: docker
-    version: 13
+    version: 15
     port: 5432
     envVars:
       - key: POSTGRES_USER
