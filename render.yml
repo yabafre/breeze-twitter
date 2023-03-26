@@ -1,0 +1,43 @@
+services:
+  - type: web
+    container_name: laravel-breeze-app
+    name: laravel-breeze-app
+    env: docker
+    buildCommand: "docker build -t laravel-breeze-app ."
+    startCommand: "docker run -p 8080:80 --log-driver json-file laravel-breeze-app"
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        generateValue: true
+      - key: APP_DEBUG
+        value: "true"
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        fromService:
+          name: laravel-breeze-db
+          type: "psql"
+          property: host
+      - key: DB_PORT
+        value: "3306"
+      - key: DB_DATABASE
+        value: laravel_breeze
+      - key: DB_USERNAME
+        value: laravel_breeze_user
+      - key: DB_PASSWORD
+        fromService:
+          name: laravel-breeze-db
+          type: "psql"
+          property: password
+
+
+databases:
+  - name: laravel-breeze-db
+    engine: mysql
+    version: "8.0"
+    username: laravel_breeze_user
+    password: laravel_breeze_password
+    port: 3306
+    database: laravel_breeze
+
