@@ -34,11 +34,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/users/{username}/tweets', [UserController::class, 'profile'])->name('profile.user');
 });
 
-//Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-//    Route::get('/tweets', [TweetController::class, 'index'])->name('tweets.index');
-//    Route::post('/tweets', [TweetController::class, 'store'])->name('tweets.store');
-//    Route::delete('/tweets/{tweet}', [TweetController::class, 'destroy'])->name('tweets.destroy');
-//    Route::get('/users/{username}/tweets', [UserController::class, 'profile'])->name('users.profile');
-//});
 
 require __DIR__.'/auth.php';
