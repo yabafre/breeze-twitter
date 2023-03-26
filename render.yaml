@@ -15,9 +15,9 @@ services:
       - key: DB_CONNECTION
         value: pgsql
       - key: DB_HOST
-        value: "dpg-cgfm1am4daddcg0i37qg-a"
+        value: postgres://root:3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4@dpg-cgfm1am4daddcg0i37qg-a/laravel_j1tu
       - key: DB_PORT
-        value: "5432"
+        value: 5432
       - key: DB_DATABASE
         value: laravel_j1tu
       - key: DB_USERNAME
@@ -46,9 +46,9 @@ services:
       - key: DB_CONNECTION
         value: pgsql
       - key: DB_HOST
-        value: "dpg-cgfm1am4daddcg0i37qg-a"
+        value: postgres://root:3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4@dpg-cgfm1am4daddcg0i37qg-a/laravel_j1tu
       - key: DB_PORT
-        value: "5432"
+        value: 5432
       - key: DB_DATABASE
         value: laravel_j1tu
       - key: DB_USERNAME
@@ -59,7 +59,7 @@ services:
 databases:
   - name: laravel
     engine: postgres
-    version: "13"
+    version: "15"
     username: root
     password: 3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4
     port: 5432
