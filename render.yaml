@@ -31,16 +31,10 @@ services:
         value: null
 
 databases:
-  - type: postgres
-    version: 15
+  - name: laravel-breeze-db
+    engine: postgres
+    version: "15"
+    username: root
+    password: 3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4
     port: 5432
-    name: laravel-breeze-db
-    envVars:
-      - key: POSTGRES_USER
-        value: root
-      - key: POSTGRES_PASSWORD
-        value: 3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4
-      - key: POSTGRES_DB
-        value: laravel_j1tu
-      - key: POSTGRES_HOST_AUTH_METHOD
-        value: trust
+    database: laravel_j1tu
