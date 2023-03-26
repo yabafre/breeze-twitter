@@ -31,6 +31,30 @@ services:
       - key: LOG_DEPRECATIONS_CHANNEL
         value: null
 
+  # Add this new service for running migrations
+  - type: web
+    name: laravel-breeze-migration
+    env: docker
+    buildCommand: "docker build -t laravel-breeze-migration ."
+    startCommand: "docker run laravel-breeze-migration php artisan migrate --force"
+    envVars:
+      # Include all the required environment variables for your application, including the database connection details.
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        value: base64:xL42zCmPgIDK69zKZyCOKsqCbVDqgpqp6Z+dhmqpZPs=
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        value: "dpg-cgfm1am4daddcg0i37qg-a"
+      - key: DB_PORT
+        value: "5432"
+      - key: DB_DATABASE
+        value: laravel_j1tu
+      - key: DB_USERNAME
+        value: root
+      - key: DB_PASSWORD
+        value: 3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4
 
 databases:
   - name: laravel
@@ -40,4 +64,3 @@ databases:
     password: 3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4
     port: 5432
     database: laravel_j1tu
-
