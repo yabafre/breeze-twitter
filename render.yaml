@@ -6,29 +6,29 @@ services:
     startCommand: "docker run -p 8080:80 --log-driver json-file laravel-breeze-app"
     envVars:
       - key: APP_ENV
-        value: production
+        value: "production"
       - key: APP_KEY
-        value: base64:xL42zCmPgIDK69zKZyCOKsqCbVDqgpqp6Z+dhmqpZPs=
+        value: "base64:xL42zCmPgIDK69zKZyCOKsqCbVDqgpqp6Z+dhmqpZPs="
       - key: APP_DEBUG
         value: "true"
       - key: DB_CONNECTION
-        value: pgsql
+        value: "pgsql"
       - key: DB_HOST
-        value: postgres://root:3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4@dpg-cgfm1am4daddcg0i37qg-a/laravel_j1tu
+        value: "postgres://root:3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4@dpg-cgfm1am4daddcg0i37qg-a/laravel_j1tu"
       - key: DB_PORT
-        value: 5432
+        value: "5432"
       - key: DB_DATABASE
-        value: laravel_j1tu
+        value: "laravel_j1tu"
       - key: DB_USERNAME
-        value: root
+        value: "root"
       - key: DB_PASSWORD
-        value: 3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4
+        value: "3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4"
       - key: LOG_CHANNEL
-        value: stack
+        value: "stack"
       - key: LOG_LEVEL
-        value: debug
+        value: "debug"
       - key: LOG_DEPRECATIONS_CHANNEL
-        value: null
+        value: "null"
       - key: REDIS_HOST
         fromService:
           type: redis
@@ -39,32 +39,8 @@ services:
           type: redis
           name: lightning
           property: port
-      - fromGroup: conc-settings
+      - fromGroup: env
 
-  # Add this new service for running migrations
-  - type: web
-    name: laravel-breeze-migration
-    env: docker
-    buildCommand: "docker build -t laravel-breeze-migration ."
-    startCommand: "docker run laravel-breeze-migration php artisan migrate --force"
-    envVars:
-      # Include all the required environment variables for your application, including the database connection details.
-      - key: APP_ENV
-        value: production
-      - key: APP_KEY
-        value: base64:xL42zCmPgIDK69zKZyCOKsqCbVDqgpqp6Z+dhmqpZPs=
-      - key: DB_CONNECTION
-        value: pgsql
-      - key: DB_HOST
-        value: postgres://root:3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4@dpg-cgfm1am4daddcg0i37qg-a/laravel_j1tu
-      - key: DB_PORT
-        value: 5432
-      - key: DB_DATABASE
-        value: laravel_j1tu
-      - key: DB_USERNAME
-        value: root
-      - key: DB_PASSWORD
-        value: 3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4
 
 # Add this new service for running the database postgreSQL
   - type: postgres
@@ -74,8 +50,8 @@ services:
     port: 5432
     envVars:
       - key: POSTGRES_USER
-        value: root
+        value: "root"
       - key: POSTGRES_PASSWORD
-        value: 3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4
+        value: "3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4"
       - key: POSTGRES_DB
-        value: laravel_j1tu
+        value: "laravel_j1tu"
