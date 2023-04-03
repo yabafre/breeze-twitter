@@ -12,7 +12,7 @@ services:
       - key: APP_DEBUG
         value: "true"
       - key: APP_URL
-        value: http://localhost
+        value: https://twitter-rkg6.onrender.com
       - key: DB_CONNECTION
         value: pgsql
       - key: DB_HOST
