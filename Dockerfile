@@ -31,10 +31,10 @@ RUN ln -s /etc/apache2/conf-available/custom.conf /etc/apache2/conf-enabled/cust
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Installez Node.js avec NVM
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash \
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash \
     && . ~/.nvm/nvm.sh \
-    && nvm install v18.14.2 \
-    && nvm use v18.14.2
+    && nvm install v16.14.0 \
+    && nvm use v16.14.0
 
 # Copiez les fichiers du projet
 COPY . /var/www/html
