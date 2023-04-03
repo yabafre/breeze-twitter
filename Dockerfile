@@ -49,7 +49,6 @@ RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoload
 
 # Installez les dépendances NPM et exécutez Vite pour construire les assets
 RUN . ~/.nvm/nvm.sh
-RUN npm install -g npm@latest
 RUN node -v
 RUN npm install
 RUN npm run build
