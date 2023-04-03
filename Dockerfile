@@ -50,7 +50,9 @@ RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoload
 
 
 # Installez les dépendances NPM et exécutez Vite pour construire les assets
-RUN . ~/.nvm/nvm.sh && npm install && npm run build
+RUN . ~/.nvm/nvm.sh
+RUN npm install
+RUN npm run build
 
 # Activez le mod_rewrite d'Apache
 RUN a2enmod rewrite
