@@ -6,17 +6,17 @@
         @csrf
 
         <!-- Email Address -->
-        <div>
+        <div class="form__search__input">
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <input id="email" class=" form__search__input__text block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
+        <div class="form__search__input mt-4">
             <x-input-label for="password" :value="__('Password')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
+            <input id="password" class="form__search__input__text block mt-1 w-full"
                             type="password"
                             name="password"
                             required autocomplete="current-password" />
@@ -25,10 +25,10 @@
         </div>
 
         <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
+        <div class=" block mt-4">
+            <label class="remember" for="remember_me" >
                 <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
+                <span class="remBe w-max ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember') }}</span>
             </label>
         </div>
 

@@ -43,7 +43,7 @@ class TweetPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Tweet $tweet)
+    public function delete(User $user, Tweet $tweet): bool
     {
         return $user->id === $tweet->user_id;
     }

@@ -1,0 +1,163 @@
+// *** Main Stylesheet ***
+body {
+  background-color: $black;
+  color: $white;
+  padding: 0 $padding-xm;
+  font-family: $font-family;
+  cursor : crosshair;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+    overflow-x: hidden;
+}
+a{
+  color: $white;
+  text-decoration: none;
+  transition: 0.4s;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+header{
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  @include font-title;
+}
+
+
+.text__intro{
+    width: 100%;
+    text-align: left;
+    display: flex;
+    font-size: 10vw !important;
+    flex-direction: column;
+    transition: transform .85s $transition-ease,text-shadow .35s $transition-ease,color .35s $transition-ease;
+    .text__into__title{
+        span{
+            position: relative;
+            display: inline-block;
+            top: -5px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            transition: $transition-ease transform calc((var(--order) / 2 * .5s) + .5s), $transition-ease top calc((var(--order) / 2 * .5s) + .5s);
+            transition-delay: .1s;
+            &:hover{
+                color: $night;
+                margin: 5px;
+                text-shadow: -1px 0 $twitter,0 1px $twitter,1px 0 $twitter,0 -1px $twitter;
+                transform: scale(1.2);
+                &::before{
+                    position: absolute;
+                    display: block;
+                    content: "";
+                    width: calc(50px / 2);
+                    height: calc(50px / 2);
+                    top: -0.165em;
+                    left: 2px;
+                    border-top: 1pt solid $twitter;
+                    border-left: 1pt solid $twitter;
+                }
+            }
+        }
+    }
+}
+.social__link{
+    width: 62px;
+    height: 125px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+    position: fixed;
+    z-index: 999;
+    color: $white;
+    align-items: center;
+    top: calc(50%);
+    transform: translateY(-50%);
+    right: 50px;
+    padding: 10px 0 25px;
+    background-color: transparent;
+    transition: 1.25s right $transition-ease,1.25s padding $transition-ease, 1.25s gap $transition-ease;
+    div{
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        transition: $transition-ease .35s;
+        transition-delay: .3s;
+    }
+    .transition__item__1{
+        top: 0;
+        right: 0;
+        border-top: 1pt solid $color-border-base;
+        border-right: 1pt solid $color-border-base;
+    }
+    .transition__item__2{
+        left: 0;
+        top: 0;
+        border-top: 1pt solid $color-border-base;
+        border-left: 1pt solid $color-border-base;
+    }
+    .transition__item__3{
+        right: 0;
+        bottom: 0;
+        border-bottom: 1pt solid $color-border-base;
+        border-right: 1pt solid $color-border-base;
+    }
+    .transition__item__4{
+        bottom: 0;
+        left: 0;
+        border-bottom: 1pt solid $color-border-base;
+        border-left: 1pt solid $color-border-base;
+    }
+    &:hover{
+        padding: 45px 0 55px;
+        gap: 15px;
+        right: 40px;
+        div{
+            width: 12px;
+            height: 12px;
+            transition: $transition-ease .35s;
+            transition-delay: 0s;
+        }
+    }
+}
+
+.active\:bg-gray-50:active {
+    --tw-bg-opacity:1;
+    background-color: rgba(249,250,251,var(--tw-bg-opacity));
+}
+
+.text__head__loop {
+    position: absolute;
+    z-index: -999999;
+    top: 18%;
+    width: 200vw;
+    color: $twitter;
+    filter: blur(74px);
+    overflow: hidden;
+    font-size: $font-size-xxl;
+    white-space: nowrap;
+    animation: marquee 24s linear infinite;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 50%;
+        height: 100%;
+        box-shadow: 0 0 10px 5px rgba(0,0,0,0.5);
+    }
+
+    .text__head__loop{
+        mix-blend-mode: difference;
+    }
+}
+
+
+
+
+

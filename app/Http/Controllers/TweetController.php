@@ -12,7 +12,8 @@ class TweetController extends Controller
     //
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $tweets = Tweet::with('user')->latest()->paginate(10);
+        $tweets = Tweet::with('user')->latest()->paginate(3);
+
         return view('tweets.index', compact('tweets'));
     }
 
@@ -27,11 +28,17 @@ class TweetController extends Controller
     /**
      * @throws AuthorizationException
      */
-    public function destroy(Tweet $tweet): \Illuminate\Http\RedirectResponse
+    public function destroy(Tweet $id): \Illuminate\Http\RedirectResponse
     {
-        $this->authorize('delete', $tweet);
-        $tweet->delete();
+        $this->authorize('delete', $id);
+        $id->delete();
         return redirect()->route('tweets.index')->with('success', 'Tweet supprimé avec succès.');
+    }
+    public function destroyProfile(Tweet $id): \Illuminate\Http\RedirectResponse
+    {
+        $this->authorize('delete', $id);
+        $id->delete();
+        return redirect()->route('profile.user', $id->user->username)->with('success', 'Tweet supprimé avec succès.');
     }
 
 }

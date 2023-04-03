@@ -1,0 +1,52 @@
+@import "mixin";
+// color primary
+:root{
+  --primary: #FFFFFF;
+  --secondary: #0B0B0B;
+}
+$white: var(--primary) !default;
+$black: var(--secondary) !default;
+
+$lavender-blush: #fcefefff !default;
+$princeton-orange: #ff9505ff !default;
+$twitter: #297BB6 !default;
+$night: #0e0d0dff !default;
+$accent    : #9C27B0 !default;
+$positive   : #21BA45 !default;
+$negative   : #C10015 !default;
+$info       : #31CCEC !default;
+$warning    : #F2C037 !default;
+// font family
+$font-family         : 'Supreme-Regular', Helvetica, Arial, sans-serif !default;
+$font-family-Bold : 'Supreme-Bold', 'Roboto', '-apple-system', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$font-family-Italic : 'Supreme-Italic', 'Roboto', '-apple-system', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$font-secondary : 'Source Code Pro','Roboto', '-apple-system', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+// font size
+$font-size-base   : 1rem !default;
+$font-size-xm : ($font-size-base * 0.75) !default;
+$font-size-sm : ($font-size-base * 0.875) !default;
+$font-size-md : ($font-size-base * 1.25) !default;
+$font-size-lg : ($font-size-base * 1.5) !default;
+$font-size-xl : ($font-size-base * 6) !default;
+$font-size-xxl : ($font-size-base * 8.5) !default;
+// font heading
+h1{    @include addParm(font-family, $font-family, font-size, $font-size-base !important, line-height, 6rem, letter-spacing, -.01562em, font-weight, 600 !important);}
+h2{    @include addParm(font-family, $font-family, font-size, $font-size-md !important, line-height, 3.75rem, letter-spacing, -.00833em, font-weight, 500 !important);}
+h3{    @include addParm(font-family, $font-family, font-size, $font-size-sm !important, line-height, 3rem, letter-spacing, 0, font-weight, 500 !important);}
+// padding and margin space
+$padding-base   : 15px !default;
+$padding-xm : ($padding-base * 3.25) !default;
+$padding-sm : ($padding-base * 3.5) !default;
+$padding-md : ($padding-base * 3.75) !default;
+// border radius
+$border-radius          : 2% !default;
+$border-radius-xm : ($border-radius * 1.25) !default;
+$border-radius-sm : ($border-radius * 1.5) !default;
+// color-border
+$color-border-base              : $white !default;
+$color-border-base-soft         : rgba($color-border-base, 0.5) !default;
+$color-border-dark              : $black !default;
+$color-border-red               : $negative !default;
+
+
+

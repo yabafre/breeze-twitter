@@ -20,9 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () {return view('dashboard');})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -30,7 +28,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/tweets', [TweetController::class, 'index'])->name('tweets.index');
     Route::post('/tweets', [TweetController::class, 'store'])->name('tweets.store');
-    Route::delete('/tweets/{tweet}', [TweetController::class, 'destroy'])->name('tweets.destroy');
+    Route::delete('/tweets/{id}', [TweetController::class, 'destroy'])->name('tweets.destroy');
+    Route::delete('/tweets/{id}/delete', [TweetController::class, 'destroyProfile'])->name('tweets.destroyProfile');
     Route::get('/users/{username}/tweets', [UserController::class, 'profile'])->name('profile.user');
 });
 
