@@ -48,10 +48,11 @@ RUN chown -R www-data:www-data /var/www/html \
 RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
 # Installez les dépendances NPM et exécutez Vite pour construire les assets
-RUN . ~/.nvm/nvm.sh \
-    && apt-get update && apt-get install -y nodejs npm \
-    && npm install \
-    && npm run build
+RUN . ~/.nvm/nvm.sh
+RUN npm install -g npm@latest
+RUN node -v
+RUN npm install
+RUN npm run build
 
 # Activez le mod_rewrite d'Apache
 RUN a2enmod rewrite
