@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get update && apt-get install -y libpq-dev \
     && docker-php-ext-install pdo_pgsql
 
+
 # Add the custom Apache configuration file
 COPY apache.conf /etc/apache2/conf-available/custom.conf
 COPY .docker/000-default.conf /etc/apache2/sites-available/000-default.conf
@@ -47,10 +48,12 @@ RUN chown -R www-data:www-data /var/www/html \
 # Installez les dépendances du projet
 RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
+
 # Installez les dépendances NPM et exécutez Vite pour construire les assets
-RUN . ~/.nvm/nvm.sh
-RUN npm install
-RUN npm run build
+RUN . ~/.nvm/nvm.sh \
+    && apt-get update \
+    && npm install \
+    && npm run build
 
 # Activez le mod_rewrite d'Apache
 RUN a2enmod rewrite
