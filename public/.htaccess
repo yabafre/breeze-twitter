@@ -18,42 +18,4 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
-
-    # Handle uploads
-    RewriteCond %{REQUEST_URI} ^/uploads/.*$
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^(.*)$ /index.php [L]
-
 </IfModule>
-
-
-# Handle .htpasswd
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{REQUEST_URI} ^/\.htpasswd$
-    RewriteRule ^(.*)$ /index.php [L]
-</IfModule>
-
-# Handle favicon.ico
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{REQUEST_URI} ^/favicon.ico$
-    RewriteRule ^(.*)$ /index.php [L]
-</IfModule>
-
-# Handle robots.txt
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{REQUEST_URI} ^/robots.txt$
-    RewriteRule ^(.*)$ /index.php [L]
-</IfModule>
-
-# redirect http to https
-RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
-
-# redirect www to non-www
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
