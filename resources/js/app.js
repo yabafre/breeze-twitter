@@ -14,8 +14,8 @@ $(document).ready(() => {
 })
 
 // snipper cursor
-let elementsToWatch = ['.title', '.subtitle', '.about__content', '.letter', '.button__triangle', '.form__search__input__text', '.remember', 'header'];
-let elementsToMouse = ['.button__form__switch'];
+let elementsToWatch = ['.title', '.subtitle', '.about__content', '.letter', '.button__triangle', '.form__search__input__text', '.remember', 'button'];
+let elementsToMouse = ['.button__form__switch', 'a'];
 let elementHovered = '';
 function cursor() {
     document.body.addEventListener('mousemove', (e) => {

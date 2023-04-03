@@ -28,7 +28,7 @@
         <div class="mx-auto container py-20 px-6 flex justify-center items-center">
             <div class="w-[100%] grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-6">
                 @foreach($tweets as $tweet)
-                    <div class=" w-full md:w-[40%] h-64 flex flex-col justify-between bg-blue-400 rounded-lg border border-yellow-400 mb-6 py-5 px-4">
+                    <div class=" w-full md:w-[90%] h-64 flex flex-col justify-between bg-blue-400 rounded-lg border border-yellow-400 mb-6 py-5 px-4">
                         <div class="flex flex-col gap-12 justify-center">
                             <h4 class="text-gray-800 font-bold mb-3"><a href="{{ route('profile.user', $tweet->user->username) }}">{{ $tweet->user->username }} ({{$tweet->user->name}})</a></h4>
                             <p class="text-gray-800 text-sm">{{ $tweet->content }}</p>
