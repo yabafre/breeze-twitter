@@ -12,7 +12,7 @@ class TweetController extends Controller
     //
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $tweets = Tweet::with('user')->latest()->paginate(3);
+        $tweets = Tweet::with('user')->latest()->paginate(10);
 
         return view('tweets.index', compact('tweets'));
     }
