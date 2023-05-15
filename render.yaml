@@ -12,19 +12,19 @@ services:
       - key: APP_DEBUG
         value: "true"
       - key: APP_URL
-        value: https://twitter-rkg6.onrender.com
+        value: 
       - key: DB_CONNECTION
         value: pgsql
       - key: DB_HOST
-        value: dpg-cgfm1am4daddcg0i37qg-a
+        value: 
       - key: DB_PORT
-        value: 5432
+        value: 
       - key: DB_DATABASE
-        value: laravel_j1tu
+        value: 
       - key: DB_USERNAME
         value: root
       - key: DB_PASSWORD
-        value: 3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4
+        value:
       - key: LOG_CHANNEL
         value: stack
       - key: LOG_LEVEL
@@ -37,6 +37,6 @@ databases:
     engine: postgres
     version: "15"
     username: root
-    password: 3ay7S2jdaIhoKZJc0QmGw0Iqv93fsSx4
+    password: 
     port: 5432
-    database: laravel_j1tu
+    database: 
